@@ -73,11 +73,15 @@ cat name.txt user_samaccountnames.txt displaynames.txt descriptions.txt distingu
 echo "Generating wordlist..."
 cat all_data.txt \
     | tr '[:upper:]' '[:lower:]' \
-    | tr ' @_\-/\\.,|()=:' '\n' \
+    | tr ' @_\-/\\.,|()=:;#&*:;{' '\n' \
     | tr -s '\n' \
-    | sort -u > wordlist.txt
+    | sort -u > wordlist_tmp.txt
 
+# add full names without the domain to find username == password
+echo "Adding full names..."
+cat name.txt wordlist_tmp.txt | tr '@' '\n' | sort -u > wordlist.txt
 echo "Wordlist generated: wordlist.txt"
 
 # Clean up temporary files
-rm name.txt user_samaccountnames.txt displaynames.txt descriptions.txt distinguishedname.txt all_data.txt
+rm name.txt user_samaccountnames.txt displaynames.txt descriptions.txt distinguishedname.txt all_data.txt wordlist_tmp.txt
+
