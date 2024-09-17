@@ -73,7 +73,7 @@ cat name.txt user_samaccountnames.txt displaynames.txt descriptions.txt distingu
 echo "Generating wordlist..."
 cat all_data.txt \
     | tr '[:upper:]' '[:lower:]' \
-    | tr ' @_\-/\\.,|()=' '\n' \
+    | tr ' @_\-/\\.,|()=:' '\n' \
     | tr -s '\n' \
     | sort -u > wordlist.txt
 
