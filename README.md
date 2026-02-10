@@ -14,3 +14,10 @@ Run the script in your terminal and it will generate wordlist.txt in the same fo
 ```bash
 ./bh2wordlist
 ```
+
+
+## Support
+
+If you find this project useful, consider supporting development:
+
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/f0rw4rd)
